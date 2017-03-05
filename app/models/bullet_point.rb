@@ -1,0 +1,2 @@
+class BulletPoint < ApplicationRecord
+end
