@@ -1,0 +1,2 @@
+class ExperienceCompany < ApplicationRecord
+end
