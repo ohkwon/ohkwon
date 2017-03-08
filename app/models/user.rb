@@ -5,6 +5,6 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :user_skills
   has_many :skills, through: :user_skills
-  # add bullet point reference after considering which way to set up
+  has_many :bullet_points, as: :foreign
   # must remove company joins
 end
