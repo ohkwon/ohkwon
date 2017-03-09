@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # this is the going to be the "home" page for the app
   def show
 
   end
@@ -8,6 +9,10 @@ class UsersController < ApplicationController
   end
 
   def update
+
+  end
+
+  def destroy
 
   end
 end
