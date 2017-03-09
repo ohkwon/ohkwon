@@ -1,6 +1,6 @@
 class Skill < ApplicationRecord
-  has_many :user_skill
-  has_many :user, through: :user_skill
+  has_many :user_skills
+  has_many :users, through: :user_skills
   has_many :project_skills
   has_many :projects, through: :project_skills
   has_many :experience_skills
