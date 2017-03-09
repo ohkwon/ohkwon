@@ -1,2 +1,0 @@
-class EducationCompany < ApplicationRecord
-end
