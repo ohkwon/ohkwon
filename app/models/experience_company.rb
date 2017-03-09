@@ -1,2 +1,0 @@
-class ExperienceCompany < ApplicationRecord
-end

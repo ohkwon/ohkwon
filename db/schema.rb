@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306003008) do
+ActiveRecord::Schema.define(version: 20170309023457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,15 +21,15 @@ ActiveRecord::Schema.define(version: 20170306003008) do
     t.string   "url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
   end
 
   create_table "bullet_points", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "project_id"
-    t.integer  "experience_id"
     t.string   "bullet"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "foreign_id"
+    t.string   "foreign_type"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -54,13 +54,7 @@ ActiveRecord::Schema.define(version: 20170306003008) do
     t.string   "study_focus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "experience_companies", force: :cascade do |t|
     t.integer  "company_id"
-    t.integer  "experience_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
   create_table "experience_skills", force: :cascade do |t|
@@ -77,18 +71,13 @@ ActiveRecord::Schema.define(version: 20170306003008) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "project_companies", force: :cascade do |t|
+    t.string   "title"
     t.integer  "company_id"
-    t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "project_skills", force: :cascade do |t|
     t.integer  "skill_id"
-    t.integer  "user_id"
+    t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170306003008) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "company_id"
   end
 
   create_table "skills", force: :cascade do |t|
