@@ -1,0 +1,73 @@
+<div>
+  <h1>
+    <%= "#{@user.first_name} #{@user.last_name}" %>
+  </h1>
+  <h3>
+    <%= @user.email %>
+  </h3>
+  <h2>
+    Skills
+  </h2>
+  <ul>
+    <% @skills.each do |skill| %>
+      <li>
+        <%= skill.name %>
+      </li>
+    <% end %>
+  </ul>
+  <h2>
+    Projects
+  </h2>
+  <ul>
+    <% @projects.each do |project| %>
+      <li>
+        <h3>
+          <a href="<%= project.url %>"><%= project.name %></a> - <%= project.company.name %>
+        </h3>
+        <p>
+          <%= project.description %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+  <h2>
+    Experience
+  </h2>
+  <ul>
+    <% @experiences.each do |experience| %>
+      <li>
+        <h3>
+          <%= experience.title %> - <%= experience.company.name %>
+        </h3>
+        <p>
+          <%= experience.description %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+  <h2>
+    Education
+  </h2>
+  <ul>
+    <% @educations.each do |education| %>
+      <li>
+        <h3>
+          <%= education.company.name %>
+        </h3>
+        <p>
+          <%= education.description %>
+        </p>
+        <h4>
+          Skills Learned
+        </h4>
+        <ul>
+          <% education.education_skills.each do |education_skill| %>
+            <li>
+              <%= education_skill.skill.name %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
